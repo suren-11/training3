@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'add-course', component: AddCourseComponent },
-  { path: 'edit-course', component: EditCourseComponent },
+  { path: 'edit-course/:id', component: EditCourseComponent },
   { path: 'show-courses', component: ShowCoursesComponent },
 ];
 
