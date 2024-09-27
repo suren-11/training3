@@ -1,1 +1,29 @@
-<p>show-students works!</p>
+<div class="d-flex">
+    <div class="container d-flex flex-column align-items-center">
+        <h3>Students List</h3>
+        <div class="w-100">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">DOB</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">Phone Number</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let student of students">
+                    <th scope="row">{{student.id}}</th>
+                    <td>{{student.name}}</td>
+                    <td>{{student.address}}</td>
+                    <td>{{student.dob}}</td>
+                    <td>{{student.course}}</td>
+                    <td>{{student.tel}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
