@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './public-base.component.scss'
 })
 export class PublicBaseComponent {
-
+  title='Public base'
 }
