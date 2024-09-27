@@ -5,7 +5,6 @@
             <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Address</th>
                     <th scope="col">DOB</th>
@@ -16,7 +15,6 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let student of students">
-                    <th scope="row">{{student.id}}</th>
                     <td>{{student.name}}</td>
                     <td>{{student.address}}</td>
                     <td>{{student.dob}}</td>

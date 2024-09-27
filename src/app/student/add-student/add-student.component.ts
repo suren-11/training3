@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { StudentServiceService } from '../../student-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-student',
@@ -13,5 +15,12 @@ export class AddStudentComponent {
     course:'',
     tel:'',
   };
+
+  constructor(private studentService: StudentServiceService, private router: Router){}
+
+  save(){
+    this.studentService.saveStudent(this.student);
+    this.router.navigate(['/dashboard/student/show-students'])
+  }
 
 }
