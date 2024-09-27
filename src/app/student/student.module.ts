@@ -4,10 +4,11 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { ShowStudentsComponent } from './show-students/show-students.component';
 import { EditStudentsComponent } from './edit-students/edit-students.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'add-student', component: AddStudentComponent },
-  { path: 'edit-student', component: EditStudentsComponent },
+  { path: 'edit-student/:id', component: EditStudentsComponent },
   { path: 'show-students', component: ShowStudentsComponent },
 ];
 
@@ -19,7 +20,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule
   ],
   exports: [RouterModule]
 })
