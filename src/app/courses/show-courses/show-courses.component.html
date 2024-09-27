@@ -5,7 +5,6 @@
             <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Fees</th>
                     <th scope="col">Duration</th> 
@@ -14,11 +13,10 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let course of courses">
-                    <th scope="row">{{course.id}}</th>
                     <td>{{course.name}}</td>
                     <td>{{course.fees}}</td>
                     <td>{{course.duration}}</td>
-                    <td><a routerLink="/dashboard/course/edit-course/{{course.id}}"><button class="btn btn-success px-5">Edit</button></a></td>
+                    <td><a><button class="btn btn-success px-5" (click)="editCourse(course)">Edit</button></a></td>
                   </tr>
                 </tbody>
               </table>

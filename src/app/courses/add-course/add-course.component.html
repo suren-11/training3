@@ -1,7 +1,7 @@
 <div class="d-flex">
     <div class="container d-flex justify-content-center align-items-center flex-column">
         <h3>Add Course</h3>
-        <form class="row d-flex justify-content-center my-3">
+        <form class="row d-flex justify-content-center my-3" (ngSubmit)="save()">
             <div class="col-md-8">
                 <label for="name" class="form-label">Course Name</label>
                 <input type="text" class="form-control" id="name" placeholder="Enter course name" name="name" required [(ngModel)]="course.name"
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="col-8 d-flex align-items-center justify-content-center mt-3">
-                <button class="btn btn-primary w-100" type="submit" routerLink="/dashboard">Save</button>
+                <button class="btn btn-primary w-100" type="submit">Save</button>
             </div>
         </form>
     </div>

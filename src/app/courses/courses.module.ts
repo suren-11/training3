@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'add-course', component: AddCourseComponent },
-  { path: 'edit-course/:id', component: EditCourseComponent },
+  { path: 'edit-course', component: EditCourseComponent },
   { path: 'show-courses', component: ShowCoursesComponent },
 ];
 
