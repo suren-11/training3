@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentServiceService } from '../../student-service.service';
 import { Router } from '@angular/router';
+import { CourseService } from '../../course.service';
 
 @Component({
   selector: 'app-edit-students',
@@ -9,11 +10,17 @@ import { Router } from '@angular/router';
 })
 export class EditStudentsComponent implements OnInit {
   student: any = {};
+  courses: any = {};
 
-  constructor(private studentService: StudentServiceService, private router: Router) {}
+  constructor(private studentService: StudentServiceService, private router: Router, private courseService: CourseService) {}
 
   ngOnInit(): void {
     this.student = this.studentService.getSelectedStudent();
+    this.loadCourses();
+  }
+
+  loadCourses(){
+    this.courses = this.courseService.getCourses();
   }
 
   save() {

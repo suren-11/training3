@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './private-base.component.scss'
 })
 export class PrivateBaseComponent {
-
+ 
 isStudentDropdownOpen = false;
 isCourseDropdownOpen = false;
 

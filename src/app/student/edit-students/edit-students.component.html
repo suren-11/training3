@@ -28,9 +28,11 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <label for="course" class="form-label">Course</label>
-                <input type="text" class="form-control" id="course" placeholder="Enter selected course" name="course"
-                    required [(ngModel)]="student.course" #course="ngModel">
+                <label for="course">Course</label>
+                <select name="course" id="course" [(ngModel)]="student.course" class="form-control" #course="ngModel"
+                    required>
+                    <option *ngFor="let course of courses" [value]="course.name">{{ course.name }}</option>
+                </select>
                 <div *ngIf="course.invalid" class="text-danger mt-2">
                     <div *ngIf="course.errors?.['required']">Course is required</div>
                 </div>

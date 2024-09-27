@@ -28,9 +28,12 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <label for="course" class="form-label">Course</label>
-                <input type="text" class="form-control" id="course" placeholder="Enter selected course" name="course"
-                    required [(ngModel)]="student.course" #course="ngModel">
+                <label for="course">Course</label>
+                <select name="course" id="course" [(ngModel)]="student.course" class="form-control" #course="ngModel"
+                    required>
+                    <option value="" disabled>Select the Course here</option>
+                    <option *ngFor="let course of courses" [value]="course.name">{{ course.name }}</option>
+                </select>
                 <div *ngIf="course.invalid" class="text-danger mt-2">
                     <div *ngIf="course.errors?.['required']">Course is required</div>
                 </div>
@@ -38,7 +41,7 @@
             <div class="col-md-8">
                 <label for="tel" class="form-label">Phone Number</label>
                 <input type="tel" class="form-control" id="tel" placeholder="Ex: 07786532145" name="tel" required
-                minlength="10" [(ngModel)]="student.tel" #tel="ngModel">
+                    minlength="10" [(ngModel)]="student.tel" #tel="ngModel">
                 <div *ngIf="tel.invalid" class="text-danger mt-2">
                     <div *ngIf="tel.errors?.['required']">Phone number is required</div>
                     <div *ngIf="tel.errors?.['minlength']">Phone number must be 10 characters long</div>
