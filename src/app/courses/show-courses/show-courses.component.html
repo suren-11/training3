@@ -1,25 +1,25 @@
 <div class="d-flex">
-    <div class="container d-flex flex-column align-items-center">
-        <h3>courses List</h3>
-        <div class="w-100">
-            <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Fees</th>
-                    <th scope="col">Duration</th> 
-                    <th scope="col">Option</th> 
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let course of courses">
-                    <td>{{course.name}}</td>
-                    <td>{{course.fees}}</td>
-                    <td>{{course.duration}}</td>
-                    <td><a><button class="btn btn-success px-5" (click)="editCourse(course)">Edit</button></a></td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
+  <div class="container d-flex flex-column align-items-center">
+    <h3>courses List</h3>
+    <div class="w-100">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Fees</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Option</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courses">
+            <td>{{course.name}}</td>
+            <td>{{course.fees}}</td>
+            <td>{{course.duration}}</td>
+            <td><a><button class="btn btn-success px-5" (click)="editCourse(course)">Edit</button></a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>

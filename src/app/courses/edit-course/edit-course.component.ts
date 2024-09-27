@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class EditCourseComponent implements OnInit {
   course: any = {};
 
-  constructor(private courseService: CourseService, private router: Router) {}
+  constructor(private courseService: CourseService, private router: Router) { }
 
   ngOnInit(): void {
     this.course = this.courseService.getSelectedCourse();
