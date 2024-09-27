@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './add-course.component.scss'
 })
 export class AddCourseComponent {
-
+  course: any = {
+    name: '',
+    fees:'',
+    duration:'',
+  };
 }

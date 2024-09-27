@@ -4,6 +4,7 @@ import { AddCourseComponent } from './add-course/add-course.component';
 import { ShowCoursesComponent } from './show-courses/show-courses.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'add-course', component: AddCourseComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    FormsModule
   ],
   exports: [RouterModule]
 })
