@@ -10,7 +10,7 @@ import { MyTestingComponent } from './my-testing/my-testing/my-testing.component
 const routes: Routes = [
   { path: 'dashboard', component: PrivateBaseComponent, children: [
     { path: 'student', loadChildren: ()=> import('../app/student/student.module').then(m=> m.StudentModule)},
-    { path: 'course', component: AddCourseComponent},
+    { path: 'course', loadChildren: ()=> import('../app/courses/courses.module').then(m=> m.CoursesModule)},
     { path: 'my-testing', component: MyTestingComponent},
   ] },
   { path: 'login', component: PublicBaseComponent, children: [{ path: '', component: LoginComponent }] },

@@ -5,10 +5,10 @@ import { ShowStudentsComponent } from './show-students/show-students.component';
 import { EditStudentsComponent } from './edit-students/edit-students.component';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes : Routes = [
-  {path:'add-student', component: AddStudentComponent},
-  {path:'edit-student', component: EditStudentsComponent},
-  {path:'show-students', component: ShowStudentsComponent},
+const routes: Routes = [
+  { path: 'add-student', component: AddStudentComponent },
+  { path: 'edit-student', component: EditStudentsComponent },
+  { path: 'show-students', component: ShowStudentsComponent },
 ];
 
 @NgModule({
@@ -21,6 +21,6 @@ const routes : Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  exports:[RouterModule]
+  exports: [RouterModule]
 })
 export class StudentModule { }
