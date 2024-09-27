@@ -1,13 +1,33 @@
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse">
-                <h3 class="text-light pe-5 me-3">Private Base</h3>
-                <div class="navbar-nav">
-                    <a class="nav-link text-light" routerLink="/dashboard">Student</a>
-                    <a class="nav-link text-light" routerLink="/dashboard/course">Course</a>
-                    <a class="nav-link text-light" routerLink="/dashboard/my-testing">My Testing</a>
-                </div>
-            </div>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse">
+            <h3 class="text-light pe-5 me-3">Private Base</h3>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown" (mouseenter)="isStudentDropdownOpen = true"
+                    (mouseleave)="isStudentDropdownOpen = false">
+                    <button class="nav-link dropdown-toggle"> Student </button>
+                    <ul class="dropdown-menu" aria-labelledby="studentDropdown" [class.show]="isStudentDropdownOpen">
+                        <li><a class="dropdown-item" routerLink="/dashboard/student/add-student">Add Student</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/student/edit-student">Edit Student</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/student/show-students">Show Students</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown" (mouseenter)="isCourseDropdownOpen = true"
+                    (mouseleave)="isCourseDropdownOpen = false">
+                    <button class="nav-link dropdown-toggle">
+                        Course
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="courseDropdown" [class.show]="isCourseDropdownOpen">
+                        <li><a class="dropdown-item" routerLink="/dashboard/student/add-student">Add Course</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/student/edit-student">Edit Course</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/student/show-students">Show Courses</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+<div class="d-flex align-items-center justify-content-center mt-4">
     <router-outlet></router-outlet>
+</div>

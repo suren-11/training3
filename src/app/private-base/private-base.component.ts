@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class PrivateBaseComponent {
 
+isStudentDropdownOpen = false;
+isCourseDropdownOpen = false;
+
+
+toggleStudentDropdown() {
+  this.isStudentDropdownOpen = !this.isStudentDropdownOpen;
+}
+
+toggleCourseDropdown() {
+  this.isCourseDropdownOpen = !this.isCourseDropdownOpen;
+}
+
 }

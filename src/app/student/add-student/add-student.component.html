@@ -1,1 +1,30 @@
-<p>add-student works!</p>
+<div class="d-flex">
+    <div class="container d-flex justify-content-center align-items-center flex-column">
+        <h3>Add Student</h3>
+        <form class="row d-flex justify-content-center my-3">
+            <div class="col-md-8">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter student name">
+            </div>
+            <div class="col-md-8">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="Enter student address">
+            </div>
+            <div class="col-md-8">
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" id="dob">
+            </div>
+            <div class="col-md-8">
+                <label for="course" class="form-label">Course</label>
+                <input type="text" class="form-control" id="course" placeholder="Enter selected course">
+            </div>
+            <div class="col-md-8">
+                <label for="tel" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="tel" placeholder="Ex: 07786532145">
+            </div>
+            <div class="col-8 d-flex align-items-center justify-content-center mt-3">
+                <button class="btn btn-primary w-100" type="submit" routerLink="/dashboard">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
