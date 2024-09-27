@@ -1,1 +1,22 @@
-<p>add-course works!</p>
+<div class="d-flex">
+    <div class="container d-flex justify-content-center align-items-center flex-column">
+        <h3>Course Student</h3>
+        <form class="row d-flex justify-content-center my-3">
+            <div class="col-md-8">
+                <label for="name" class="form-label">Course Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter course name">
+            </div>
+            <div class="col-md-8">
+                <label for="fees" class="form-label">Fees</label>
+                <input type="text" class="form-control" id="fees" placeholder="Enter fees">
+            </div>
+            <div class="col-md-8">
+                <label for="duration" class="form-label">Duration</label>
+                <input type="text" class="form-control" id="duration" placeholder="Enter course duration">
+            </div>
+            <div class="col-8 d-flex align-items-center justify-content-center mt-3">
+                <button class="btn btn-primary w-100" type="submit" routerLink="/dashboard">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
