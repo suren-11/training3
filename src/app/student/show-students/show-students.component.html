@@ -10,7 +10,8 @@
                     <th scope="col">Address</th>
                     <th scope="col">DOB</th>
                     <th scope="col">Course</th>
-                    <th scope="col">Phone Number</th>
+                    <th scope="col">Phone Number</th> 
+                    <th scope="col">Option</th> 
                   </tr>
                 </thead>
                 <tbody>
@@ -21,6 +22,7 @@
                     <td>{{student.dob}}</td>
                     <td>{{student.course}}</td>
                     <td>{{student.tel}}</td>
+                    <td><a routerLink="/dashboard/student/edit-student"><button class="btn btn-success px-5">Edit</button></a></td>
                   </tr>
                 </tbody>
               </table>
