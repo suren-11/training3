@@ -8,16 +8,17 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+
   constructor(private router: Router) { }
   email: string = '';
   password: string = '';
-
+  error = false;
   login(email: string, password: string) {
 
     if (email === 'admin@gmail.com' && password === '123456') {
       this.router.navigate(['/dashboard']);
     } else {
-      console.log('Invalid credentials');
+      this.error = true;
     }
   }
 }
