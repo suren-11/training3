@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './add-student.component.scss'
 })
 export class AddStudentComponent {
+  student: any = {
+    name: '',
+    address:'',
+    dob:'',
+    course:'',
+    tel:'',
+  };
 
 }
