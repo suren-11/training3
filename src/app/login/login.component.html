@@ -1,16 +1,16 @@
 <div class="container d-flex justify-content-center align-items-center">
     <h3>Login Component</h3>
-    <form class="row d-flex justify-content-center my-3">
+    <form class="row d-flex justify-content-center my-3" (ngSubmit)="login(email, password)">
         <div class="col-md-8">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email adddress">
+            <input type="email" class="form-control" id="email" placeholder="Enter your email adddress" [(ngModel)]="email" name="email" required>
         </div>
         <div class="col-md-8">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="Enter your password" id="password">
+            <input type="password" class="form-control" placeholder="Enter your password" [(ngModel)]="password" name="password" required >
         </div>
         <div class="col-8 d-flex align-items-center justify-content-center mt-3">
-            <button class="btn btn-primary w-100" type="submit" routerLink="/dashboard">Login</button>
+            <button class="btn btn-primary w-100" type="submit">Login</button>
         </div>
     </form>
 </div>
