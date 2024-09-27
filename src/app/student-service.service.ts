@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class StudentServiceService {
 
   private students: any[] = [];
+  private selectedStudent: any;
 
   students1 =
     {
@@ -44,5 +45,20 @@ export class StudentServiceService {
 
   getStudents(){
     return this.students;
+  }
+
+  selectStudent(student: any) {
+    this.selectedStudent = student;
+  }
+
+  getSelectedStudent() {
+    return this.selectedStudent;
+  }
+
+  updateStudent(updatedStudent: any) {
+    const index = this.students.findIndex(s => s.id === updatedStudent.id);
+    if (index !== -1) {
+      this.students[index] = updatedStudent;
+    }
   }
 }

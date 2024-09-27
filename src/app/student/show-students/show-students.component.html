@@ -20,7 +20,7 @@
                     <td>{{student.dob}}</td>
                     <td>{{student.course}}</td>
                     <td>{{student.tel}}</td>
-                    <td><a routerLink="/dashboard/student/edit-student/${{student.id}}"><button class="btn btn-success px-5">Edit</button></a></td>
+                    <td><a><button class="btn btn-success px-5" (click)="editStudent(student)">Edit</button></a></td>
                   </tr>
                 </tbody>
               </table>
