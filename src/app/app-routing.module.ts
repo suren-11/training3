@@ -14,6 +14,8 @@ const routes: Routes = [
     { path: 'my-testing', component: MyTestingComponent},
   ] },
   { path: 'login', component: PublicBaseComponent, children: [{ path: '', component: LoginComponent }] },
+  {path:'', redirectTo:'/login', pathMatch:'full'},
+  {path:'**', redirectTo:'/login'},
 ];
 
 @NgModule({
