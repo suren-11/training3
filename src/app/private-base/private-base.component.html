@@ -1,37 +1,50 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <div class="collapse navbar-collapse">
-            <h3 class="text-light pe-5 me-3">Private Base</h3>
-            <ul class="navbar-nav">
+
+        <h3 class="navbar-brand">Private Base</h3>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                 <li class="nav-item dropdown" (mouseenter)="isStudentDropdownOpen = true"
                     (mouseleave)="isStudentDropdownOpen = false">
-                    <button class="nav-link dropdown-toggle"> Student </button>
+                    <button class="nav-link dropdown-toggle" id="studentDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Student
+                    </button>
                     <ul class="dropdown-menu" aria-labelledby="studentDropdown" [class.show]="isStudentDropdownOpen">
                         <li><a class="dropdown-item" routerLink="/dashboard/student/add-student">Add Student</a></li>
                         <li><a class="dropdown-item" routerLink="/dashboard/student/show-students">Show Students</a>
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item dropdown" (mouseenter)="isCourseDropdownOpen = true"
                     (mouseleave)="isCourseDropdownOpen = false">
-                    <button class="nav-link dropdown-toggle">
+                    <button class="nav-link dropdown-toggle" id="courseDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         Course
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="courseDropdown" [class.show]="isCourseDropdownOpen">
                         <li><a class="dropdown-item" routerLink="/dashboard/course/add-course">Add Course</a></li>
-                        <li><a class="dropdown-item" routerLink="/dashboard/course/show-courses">Show Course</a></li>
+                        <li><a class="dropdown-item" routerLink="/dashboard/course/show-courses">Show Courses</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link"></a>
-                </li>
+
             </ul>
+
             <div class="ms-auto">
                 <button class="btn btn-danger" routerLink="/login">Logout</button>
             </div>
         </div>
     </div>
 </nav>
+
 <div class="d-flex align-items-center justify-content-center mt-4">
     <router-outlet></router-outlet>
 </div>
