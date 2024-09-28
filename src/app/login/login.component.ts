@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,17 +9,29 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-
-  constructor(private router: Router) { }
-  email: string = '';
-  password: string = '';
+  userForm: FormGroup;
   error = false;
-  login(email: string, password: string) {
 
-    if (email === 'admin@gmail.com' && password === '123456') {
-      this.router.navigate(['/dashboard']);
+  constructor(
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.userForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
+
+  login() {
+    if (this.userForm.valid) {
+      const { email, password } = this.userForm.value;
+      if (email === 'admin@gmail.com' && password === '123456') {
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.error = true;
+      }
     } else {
-      this.error = true;
+      this.userForm.markAllAsTouched();
     }
   }
 }
