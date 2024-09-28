@@ -12,15 +12,15 @@ export class StudentServiceService {
     {
       'name': 'suren',
       'address': 'colombo',
-      'dob': '11.09.1992',
-      'course': 'java',
+      'dob': '1992-11-09',
+      'course': 'Java',
       'tel': '0752314569'
     };
 
     student2 = {
       'name': 'kamal',
       'address': 'jaffna',
-      'dob': '11.09.1992',
+      'dob': '1994-10-10',
       'course': 'C#',
       'tel': '0745614577'
     };
@@ -28,7 +28,7 @@ export class StudentServiceService {
     student3 = {
       'name': 'bandula',
       'address': 'kandy',
-      'dob': '11.09.1994',
+      'dob': '1994-08-86',
       'course': 'Angular',
       'tel': '0745612486'
     };

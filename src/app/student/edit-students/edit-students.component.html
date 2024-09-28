@@ -1,54 +1,93 @@
 <div class="d-flex">
     <div class="container d-flex justify-content-center align-items-center flex-column">
         <h3>Edit Student</h3>
-        <form class="row d-flex justify-content-center my-3" (ngSubmit)="save()">
+
+        <form class="row d-flex justify-content-center my-3" (ngSubmit)="save()" [formGroup]="studentForm">
+
             <div class="col-md-8">
+
                 <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" name="name" required minlength="6" [(ngModel)]="student.name"
-                    #name="ngModel">
-                <div *ngIf="name.invalid" class="text-danger mt-2">
-                    <div *ngIf="name.errors?.['required']">Name is required</div>
-                    <div *ngIf="name.errors?.['minlength']">Name must be at least 6 characters long</div>
+
+                <input type="text" class="form-control" id="name" placeholder="Ex: Suren Prasanth" name="name"
+                    formControlName="name" [(ngModel)]="student.name"
+                    [ngClass]="{'is-invalid': studentForm.controls['name'].invalid && studentForm.controls['name'].touched}">
+
+                <div *ngIf="studentForm.controls['name'].touched" class="invalid-feedback">
+                    <div *ngIf="studentForm.controls['name'].errors?.['required']">Name is required</div>
+                    <div *ngIf="studentForm.controls['name'].errors?.['minlength']">Name must be at least 5 characters
+                        long
+                    </div>
                 </div>
+
             </div>
+
             <div class="col-md-8">
+
                 <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" name="address" id="address" placeholder="Enter student address"
-                    required [(ngModel)]="student.address" #address="ngModel">
-                <div *ngIf="address.invalid" class="text-danger mt-2">
-                    <div *ngIf="address.errors?.['required']">Address is required</div>
+                <input type="text" class="form-control" id="address" placeholder="Ex: Colombo" name="address"
+                    formControlName="address" [(ngModel)]="student.address"
+                    [ngClass]="{'is-invalid': studentForm.controls['address'].invalid && studentForm.controls['address'].touched}">
+
+                <div *ngIf="studentForm.controls['address'].touched" class="invalid-feedback">
+                    <div *ngIf="studentForm.controls['address'].errors?.['required']">Address is required</div>
+                    <div *ngIf="studentForm.controls['address'].errors?.['minlength']">Address must be at least 5
+                        characters long
+                    </div>
                 </div>
             </div>
+
             <div class="col-md-8">
                 <label for="dob" class="form-label">Date of Birth</label>
-                <input type="date" class="form-control" id="dob" name="dob" required [(ngModel)]="student.dob"
-                    #dob="ngModel">
-                <div *ngIf="dob.invalid" class="text-danger mt-2">
-                    <div *ngIf="dob.errors?.['required']">Date of Birth is required</div>
+
+                <input type="date" class="form-control" id="dob" name="dob" formControlName="dob"
+                    [(ngModel)]="student.dob"
+                    [ngClass]="{'is-invalid': studentForm.controls['dob'].invalid && studentForm.controls['dob'].touched}">
+
+                <div *ngIf="studentForm.controls['name'].errors?.['required'] && studentForm.controls['dob'].touched"
+                    class="invalid-feedback">
+                    Date of Birth is required
                 </div>
             </div>
+
             <div class="col-md-8">
+
                 <label for="course">Course</label>
-                <select name="course" id="course" [(ngModel)]="student.course" class="form-control" #course="ngModel"
-                    required>
+
+                <select class="form-control" name="course" id="course" formControlName="course"
+                    [(ngModel)]="student.course"
+                    [ngClass]="{'is-invalid': studentForm.controls['course'].invalid && studentForm.controls['course'].touched}">
                     <option *ngFor="let course of courses" [value]="course.name">{{ course.name }}</option>
                 </select>
-                <div *ngIf="course.invalid" class="text-danger mt-2">
-                    <div *ngIf="course.errors?.['required']">Course is required</div>
+
+                <div *ngIf="studentForm.controls['course'].errors?.['required'] && studentForm.controls['course'].touched"
+                    class="invalid-feedback">
+                    Course is required
                 </div>
+
             </div>
+
             <div class="col-md-8">
+
                 <label for="tel" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="tel" placeholder="Ex: 07786532145" name="tel" required
-                minlength="10" [(ngModel)]="student.tel" #tel="ngModel">
-                <div *ngIf="tel.invalid" class="text-danger mt-2">
-                    <div *ngIf="tel.errors?.['required']">Phone number is required</div>
-                    <div *ngIf="tel.errors?.['minlength']">Phone number must be 10 characters long</div>
+
+                <input type="tel" class="form-control" id="tel" placeholder="Ex: 07786532145" name="tel"
+                    formControlName="tel" [(ngModel)]="student.tel"
+                    [ngClass]="{'is-invalid': studentForm.controls['tel'].invalid && studentForm.controls['tel'].touched}">
+
+                <div *ngIf="studentForm.controls['tel'].touched" class="text-danger mt-2">
+                    <div *ngIf="studentForm.controls['tel'].errors?.['required']">Phone number is required</div>
+                    <div *ngIf="studentForm.controls['tel'].errors?.['minlength']">Phone number must be 10 characters
+                        long</div>
                 </div>
+                <div *ngIf="studentForm.controls['tel'].errors?.['pattern']" class="text-danger mt-2">Enter valid Phone
+                    number</div>
             </div>
+
             <div class="col-8 d-flex align-items-center justify-content-center mt-3">
                 <button class="btn btn-success w-100" type="submit">Update</button>
             </div>
+
         </form>
+
     </div>
 </div>

@@ -4,7 +4,7 @@ import { AddStudentComponent } from './add-student/add-student.component';
 import { ShowStudentsComponent } from './show-students/show-students.component';
 import { EditStudentsComponent } from './edit-students/edit-students.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'add-student', component: AddStudentComponent },
@@ -21,7 +21,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [RouterModule]
 })
