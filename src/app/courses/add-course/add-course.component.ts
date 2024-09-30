@@ -32,7 +32,7 @@ generateCode(){
 
   if(course){
     const words = course.split(' ');
-    const code = words.map((word:string) => word[0].toUpperCase()).join('');
+    const code = words.map((word:string) => word[0]).join('');
     this.courseForm.get('code')?.setValue(code); 
   }
 }

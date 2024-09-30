@@ -52,14 +52,16 @@ export class AddStudentComponent implements OnInit {
 
   generateId() {
     const lastStudent = this.students[this.students.length - 1];
-    this.newPk = '001';
+    this.newPk = this.year+'001';
 
     if(lastStudent){
-      const lastPk = lastStudent.regNum.split('-')[2];
-      this.newPk = (parseInt(lastPk,10)+1).toString().padStart(3,'0');
+      const lastPk = lastStudent.pk;
+      
+      this.newPk = (parseInt(lastPk,10)+1).toString();
+      console.log(this.newPk);
     }
 
-    const updatedPk = `${this.year}-${this.newPk}`
+    const updatedPk = lastStudent? this.newPk :`${this.year}${this.newPk}`
 
     this.studentForm.get('pk')?.setValue(updatedPk);
   }
@@ -71,7 +73,7 @@ export class AddStudentComponent implements OnInit {
 
     const code = selectedCourse[0].code ;
 
-    const regNum = `${code}-${this.studentForm.get('pk')?.value}`;
+    const regNum = `${code}${this.studentForm.get('pk')?.value}`;
     this.studentForm.get('regNum')?.setValue(regNum);
   }
 

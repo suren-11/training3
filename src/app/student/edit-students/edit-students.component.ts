@@ -60,7 +60,7 @@ export class EditStudentsComponent implements OnInit {
     
     const code = selectedCourse[0].code ;
 
-    const regNum = `${code}-${pk}`;
+    const regNum = `${code}${pk}`;
     console.log(regNum);
     this.studentForm.get('pk')?.setValue(pk);
     this.studentForm.get('regNum')?.setValue(regNum);

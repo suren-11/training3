@@ -13,6 +13,7 @@ export class EditCourseComponent implements OnInit {
     name: '',
     fees:'',
     duration:'',
+    code:''
   };
 
   courseForm: FormGroup;
@@ -22,6 +23,7 @@ export class EditCourseComponent implements OnInit {
       name: ['', [Validators.required]],
       fees: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       duration: ['', [Validators.required, Validators.minLength(1)]],
+      code:[''],
     });
   }
 
@@ -29,9 +31,24 @@ export class EditCourseComponent implements OnInit {
     this.course = this.courseService.getSelectedCourse();
   }
 
+  generateCode(){
+    const course = this.courseForm.get('name')?.value;
+  
+    if(course){
+      const words = course.split(' ');
+      
+      const code = words.map((word:string) => word[0].toUpperCase()).join('');
+
+      this.courseForm.get('code')?.setValue(code); 
+    }
+  }
+
   save() {
+    this.generateCode();
+    
     if (this.courseForm.valid) {
-      this.courseService.updateCourse(this.course)
+      this.courseService.updateCourse(this.courseForm.value)
+      console.log(this.courseForm.get('code')?.value);
       this.router.navigate(['/dashboard/course/show-courses']);
     }else{
       this.courseForm.markAllAsTouched();
