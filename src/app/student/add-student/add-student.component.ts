@@ -40,8 +40,8 @@ export class AddStudentComponent implements OnInit {
       dob: ['', [Validators.required]],
       course: ['', [Validators.required]],
       tel: ['', [Validators.required, Validators.minLength(10), Validators.pattern('^[0-9]*$')]],
-      pk:[''],
-      regNum:[''],
+      pk: [''],
+      regNum: [''],
     });
   }
 
@@ -52,26 +52,33 @@ export class AddStudentComponent implements OnInit {
 
   generateId() {
     const lastStudent = this.students[this.students.length - 1];
-    this.newPk = this.year+'001';
+    this.newPk = '001';
 
-    if(lastStudent){
+    if (lastStudent) {
       const lastPk = lastStudent.pk;
-      
-      this.newPk = (parseInt(lastPk,10)+1).toString();
-      console.log(this.newPk);
+      const lastYear = lastPk.substring(0, 4);
+
+      if (lastYear === this.year) {
+        
+        const lastPkNumber = lastPk.substring(4);
+        this.newPk = (parseInt(lastPkNumber, 10) + 1).toString().padStart(3, '0');
+        
+      } else {
+        this.newPk = '001';
+      }
     }
 
-    const updatedPk = lastStudent? this.newPk :`${this.year}${this.newPk}`
+    const updatedPk = `${this.year}${this.newPk}`;
 
     this.studentForm.get('pk')?.setValue(updatedPk);
   }
 
-  generatedReg(){
+  generatedReg() {
     this.generateId();
     const course = this.studentForm.get('course')?.value;
-    const selectedCourse = this.courses.filter( (c:any) => c.name == course);
+    const selectedCourse = this.courses.filter((c: any) => c.name == course);
 
-    const code = selectedCourse[0].code ;
+    const code = selectedCourse[0].code;
 
     const regNum = `${code}${this.studentForm.get('pk')?.value}`;
     this.studentForm.get('regNum')?.setValue(regNum);
