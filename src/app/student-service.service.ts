@@ -16,7 +16,7 @@ export class StudentServiceService {
       'course': 'Java',
       'tel': '0752314569',
       'regNum':'SE-2024-001',
-      'pk':'2024-001'
+      pk:'2024-001'
     };
 
     student2 = {
@@ -26,17 +26,17 @@ export class StudentServiceService {
       'course': 'C#',
       'tel': '0745614577',
       'regNum':'CS-2024-002',
-      'pk':'2024-002'
+      pk:'2024-002'
     };
 
     student3 = {
       'name': 'bandula',
       'address': 'kandy',
-      'dob': '1994-08-86',
+      'dob': '1994-08-06',
       'course': 'Angular',
       'tel': '0745612486',
       'regNum':'IS-2024-003',
-      'pk':'2024-003'
+      pk:'2024-003'
     };
 
   constructor() { 
@@ -62,7 +62,7 @@ export class StudentServiceService {
   }
 
   updateStudent(updatedStudent: any) {
-    const index = this.students.findIndex(s => s.id === updatedStudent.id);
+    const index = this.students.findIndex(s => s.pk === updatedStudent.pk);
     if (index !== -1) {
       this.students[index] = updatedStudent;
     }

@@ -3,6 +3,7 @@ import { StudentServiceService } from '../../student-service.service';
 import { Router } from '@angular/router';
 import { CourseService } from '../../course.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { log } from 'node:console';
 
 @Component({
   selector: 'app-edit-students',
@@ -16,7 +17,10 @@ export class EditStudentsComponent implements OnInit {
     dob: '',
     course: '',
     tel: '',
+    pk:'',
+    regNum: '',
   };
+
   courses: any = {};
 
   studentForm: FormGroup;
@@ -33,6 +37,8 @@ export class EditStudentsComponent implements OnInit {
       dob: ['',[Validators.required]],
       course: ['',[Validators.required]],
       tel: ['',[Validators.required, Validators.minLength(10), Validators.pattern('^[0-9]*$')]],
+      pk:[''],
+      regNum:[''],
     });
   }
 
@@ -45,12 +51,30 @@ export class EditStudentsComponent implements OnInit {
     this.courses = this.courseService.getCourses();
   }
 
-  save() {
-    if (this.studentForm.valid) {
-      this.studentService.updateStudent(this.student);
-      this.router.navigate(['/dashboard/student/show-students']);
-    }else{
-      this.studentForm.markAllAsTouched();
-    }
+
+  generatedReg(){
+    const pk = this.student.pk
+    const course = this.studentForm.get('course')?.value;
+    
+    const selectedCourse = this.courses.filter( (c:any) => c.name == course);
+    
+    const code = selectedCourse[0].code ;
+
+    const regNum = `${code}-${pk}`;
+    console.log(regNum);
+    this.studentForm.get('pk')?.setValue(pk);
+    this.studentForm.get('regNum')?.setValue(regNum);
   }
+
+  save() {
+    this.generatedReg(); 
+    if (this.studentForm.valid) {
+        const updatedStudent = this.studentForm.value; 
+        this.studentService.updateStudent(updatedStudent); 
+        this.router.navigate(['/dashboard/student/show-students']);
+    } else {
+        this.studentForm.markAllAsTouched();
+    }
+}
+
 }
