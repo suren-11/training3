@@ -14,7 +14,9 @@ export class StudentServiceService {
       'address': 'colombo',
       'dob': '1992-11-09',
       'course': 'Java',
-      'tel': '0752314569'
+      'tel': '0752314569',
+      'regNum':'SE-2024-001',
+      'pk':'2024-001'
     };
 
     student2 = {
@@ -22,7 +24,9 @@ export class StudentServiceService {
       'address': 'jaffna',
       'dob': '1994-10-10',
       'course': 'C#',
-      'tel': '0745614577'
+      'tel': '0745614577',
+      'regNum':'CS-2024-002',
+      'pk':'2024-002'
     };
 
     student3 = {
@@ -30,7 +34,9 @@ export class StudentServiceService {
       'address': 'kandy',
       'dob': '1994-08-86',
       'course': 'Angular',
-      'tel': '0745612486'
+      'tel': '0745612486',
+      'regNum':'IS-2024-003',
+      'pk':'2024-003'
     };
 
   constructor() { 

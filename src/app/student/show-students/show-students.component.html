@@ -5,6 +5,7 @@
             <table class="table table-striped">
                 <thead>
                   <tr>
+                    <th>Primary Key</th>
                     <th>Registerd Number</th>
                     <th scope="col">Name</th>
                     <th scope="col">Address</th>
@@ -16,7 +17,8 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let student of students">
-                    <td></td>
+                    <td>{{student.pk}}</td>
+                    <td>{{student.regNum}}</td>
                     <td>{{student.name}}</td>
                     <td>{{student.address}}</td>
                     <td>{{student.dob}}</td>
