@@ -43,7 +43,7 @@ export class AddStudentComponent implements OnInit {
 
   save() {
     if (this.studentForm.valid) {
-      this.studentService.saveStudent(this.student);
+      this.studentService.saveStudent(this.studentForm.value);
       this.router.navigate(['/dashboard/student/show-students'])
     }else{
       this.studentForm.markAllAsTouched();

@@ -10,29 +10,41 @@ export class CourseService {
 
   courses1 = {
     'id': 1,
-    'name': 'Java',
+    'name': 'Information Technology',
     'fees': '100000',
     'duration': '4 Months',
+    'code' : 'IT'
   };
-
+  
   course2 = {
     'id': 2,
-    'name': 'C#',
+    'name': 'Computer System',
     'fees': '200000',
     'duration': '5 Months',
+    'code' : 'CS'
   };
-
+  
   course3 = {
     'id': 3,
-    'name': 'Angular',
+    'name': 'Information System',
     'fees': '300000',
     'duration': '3 Months',
+    'code' : 'IS'
+  };
+  
+  course4 = {
+    'id': 4,
+    'name': 'Software Engineering',
+    'fees': '300000',
+    'duration': '3 Months',
+    'code' : 'SE'
   };
 
   constructor() {
     this.courses.push(this.courses1)
     this.courses.push(this.course2)
     this.courses.push(this.course3)
+    this.courses.push(this.course4)
   }
 
   saveCourse(course: any) {

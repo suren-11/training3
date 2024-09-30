@@ -13,6 +13,7 @@ export class AddCourseComponent {
     name: '',
     fees:'',
     duration:'',
+    code:''
   };
 
   courseForm: FormGroup;
@@ -22,12 +23,24 @@ export class AddCourseComponent {
       name: ['', [Validators.required]],
       fees: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       duration: ['', [Validators.required, Validators.minLength(1)]],
+      code:['']
     });
   }
 
+generateCode(){
+  const course = this.courseForm.get('name')?.value;
+
+  if(course){
+    const words = course.split(' ');
+    const code = words.map((word:string) => word[0].toUpperCase()).join('');
+    this.courseForm.get('code')?.setValue(code); 
+  }
+}
+
   save(){
+    this.generateCode()
     if(this.courseForm.valid){
-      this.courseService.saveCourse(this.course);
+      this.courseService.saveCourse(this.courseForm.value);
       this.router.navigate(['/dashboard/course/show-courses']);
     }else{
       this.courseForm.markAllAsTouched();
