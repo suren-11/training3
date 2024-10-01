@@ -9,14 +9,7 @@ export class PrivateBaseComponent {
  
 isStudentDropdownOpen = false;
 isCourseDropdownOpen = false;
+isMyTestingDropdownOpen = false;
 
-
-toggleStudentDropdown() {
-  this.isStudentDropdownOpen = !this.isStudentDropdownOpen;
-}
-
-toggleCourseDropdown() {
-  this.isCourseDropdownOpen = !this.isCourseDropdownOpen;
-}
 
 }

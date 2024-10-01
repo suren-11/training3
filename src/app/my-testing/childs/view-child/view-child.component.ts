@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './view-child.component.scss'
 })
 export class ViewChildComponent {
+  message = 'This is from View Child component';
 
+  constructor(){}
 }

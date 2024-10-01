@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'dashboard', component: PrivateBaseComponent, children: [
       { path: 'student', loadChildren: () => import('../app/student/student.module').then(m => m.StudentModule) },
       { path: 'course', loadChildren: () => import('../app/courses/courses.module').then(m => m.CoursesModule) },
-      { path: 'my-testing', component: MyTestingComponent },
+      { path: 'my-testing', loadChildren:()=> import('../app/my-testing/my-testing.module').then(m=>m.MyTestingModule) },
     ]
   },
   { path: 'login', component: PublicBaseComponent, children: [{ path: '', component: LoginComponent }] },

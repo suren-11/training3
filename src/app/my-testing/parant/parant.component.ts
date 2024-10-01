@@ -13,7 +13,9 @@ export class ParantComponent implements AfterViewInit {
   
   constructor(){}
 
+   viewChildMessage!: string;
+
   ngAfterViewInit(): void {
-    
+    this.viewChildMessage = this.child.message;
   }
 }
