@@ -6,6 +6,7 @@ import { ViewChildComponent } from './childs/view-child/view-child.component';
 import { ParantComponent } from './parant/parant.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EventEmmitterChildComponent } from './childs/event-emmitter-child/event-emmitter-child.component';
+import { SibilingComponent } from './childs/sibiling/sibiling.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
     InputDecoratorChildComponent,
     ViewChildComponent,
     ParantComponent,
-    EventEmmitterChildComponent
+    EventEmmitterChildComponent,
+    SibilingComponent
   ],
   imports: [
     CommonModule,

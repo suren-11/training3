@@ -8,6 +8,10 @@
             <app-view-child></app-view-child>
             Message : {{viewChildMessage}}
         </div>
+        <div class="my-4 text-light">
+            Event Message : {{outPutEmmitterMessage}}
+            <app-event-emmitter-child (messageEvent)="receiveMessage($event)"></app-event-emmitter-child>
+        </div>
     </div>
 </div>
 <router-outlet></router-outlet>
