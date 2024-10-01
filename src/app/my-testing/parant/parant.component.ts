@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ViewChildComponent } from '../childs/view-child/view-child.component';
+import { Subscription } from 'rxjs';
+import { DataService } from '../childs/data.service';
 
 @Component({
   selector: 'app-parant',
@@ -10,24 +12,29 @@ export class ParantComponent implements AfterViewInit, OnInit, OnDestroy {
   parentMessage = 'This is from Parent component'
 
   @ViewChild(ViewChildComponent) child: any;
-  
-  constructor(){}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
 
-   viewChildMessage!: string;
+  constructor(private data: DataService) { }
+
+  viewChildMessage!: string;
 
   ngAfterViewInit(): void {
     this.viewChildMessage = this.child.message;
   }
 
-  outPutEmmitterMessage!:string;
+  outPutEmmitterMessage!: string;
 
-  receiveMessage($event: string){
+  receiveMessage($event: string) {
     this.outPutEmmitterMessage = $event;
+  }
+
+  sibilingMessage!: string;
+  subscription!: Subscription;
+
+  ngOnInit(): void {
+    this.subscription = this.data.currentMessage.subscribe(msg => this.sibilingMessage = msg);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
