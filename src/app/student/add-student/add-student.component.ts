@@ -52,19 +52,19 @@ export class AddStudentComponent implements OnInit {
 
   generateId() {
     const lastStudent = this.students[this.students.length - 1];
-    this.newPk = '001';
+    this.newPk = '00001';
 
     if (lastStudent) {
       const lastPk = lastStudent.pk;
       const lastYear = lastPk.substring(0, 4);
 
       if (lastYear === this.year) {
-        
+
         const lastPkNumber = lastPk.substring(4);
-        this.newPk = (parseInt(lastPkNumber, 10) + 1).toString().padStart(3, '0');
-        
+        this.newPk = (parseInt(lastPkNumber, 10) + 1).toString().padStart(5, '0');
+
       } else {
-        this.newPk = '001';
+        this.newPk = '00001';
       }
     }
 

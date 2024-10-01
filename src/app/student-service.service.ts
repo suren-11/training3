@@ -15,41 +15,41 @@ export class StudentServiceService {
       'dob': '1992-11-09',
       'course': 'Software Engineering',
       'tel': '0752314569',
-      'regNum':'SE2024001',
-      pk:'2024001'
+      'regNum': 'SE202400001',
+      pk: '202400001'
     };
 
-    student2 = {
-      'name': 'kamal',
-      'address': 'jaffna',
-      'dob': '1994-10-10',
-      'course': 'Computer System',
-      'tel': '0745614577',
-      'regNum':'CS2024002',
-      pk:'2024002'
-    };
+  student2 = {
+    'name': 'kamal',
+    'address': 'jaffna',
+    'dob': '1994-10-10',
+    'course': 'Computer System',
+    'tel': '0745614577',
+    'regNum': 'CS202400002',
+    pk: '202400002'
+  };
 
-    student3 = {
-      'name': 'bandula',
-      'address': 'kandy',
-      'dob': '1994-08-06',
-      'course': 'Information System',
-      'tel': '0745612486',
-      'regNum':'IS2024003',
-      pk:'2024003'
-    };
+  student3 = {
+    'name': 'bandula',
+    'address': 'kandy',
+    'dob': '1994-08-06',
+    'course': 'Information System',
+    'tel': '0745612486',
+    'regNum': 'IS202400003',
+    pk: '202400003'
+  };
 
-  constructor() { 
+  constructor() {
     this.students.push(this.students1)
     this.students.push(this.student2)
     this.students.push(this.student3)
   }
 
-  saveStudent(student:any){
+  saveStudent(student: any) {
     this.students.push(student);
   }
 
-  getStudents(){
+  getStudents() {
     return this.students;
   }
 

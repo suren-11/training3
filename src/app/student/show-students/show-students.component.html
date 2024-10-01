@@ -21,7 +21,7 @@
                     <td>{{student.regNum}}</td>
                     <td>{{student.name}}</td>
                     <td>{{student.address}}</td>
-                    <td>{{student.dob}}</td>
+                    <td>{{student.dob | date: 'dd/MM/yyyy'}}</td>
                     <td>{{student.course}}</td>
                     <td>{{student.tel}}</td>
                     <td><button class="btn btn-success px-5" (click)="editStudent(student)">Edit</button></td>

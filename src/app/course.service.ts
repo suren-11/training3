@@ -13,31 +13,31 @@ export class CourseService {
     'name': 'Information Technology',
     'fees': '100000',
     'duration': '4 Months',
-    'code' : 'IT'
+    'code': 'IT'
   };
-  
+
   course2 = {
     'id': 2,
     'name': 'Computer System',
     'fees': '200000',
     'duration': '5 Months',
-    'code' : 'CS'
+    'code': 'CS'
   };
-  
+
   course3 = {
     'id': 3,
     'name': 'Information System',
     'fees': '300000',
     'duration': '3 Months',
-    'code' : 'IS'
+    'code': 'IS'
   };
-  
+
   course4 = {
     'id': 4,
     'name': 'Software Engineering',
     'fees': '300000',
     'duration': '3 Months',
-    'code' : 'SE'
+    'code': 'SE'
   };
 
   constructor() {

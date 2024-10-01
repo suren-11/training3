@@ -11,38 +11,38 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddCourseComponent {
   course: any = {
     name: '',
-    fees:'',
-    duration:'',
-    code:''
+    fees: '',
+    duration: '',
+    code: ''
   };
 
   courseForm: FormGroup;
 
-  constructor(private courseService: CourseService, private router: Router, private fb: FormBuilder){
+  constructor(private courseService: CourseService, private router: Router, private fb: FormBuilder) {
     this.courseForm = this.fb.group({
       name: ['', [Validators.required]],
       fees: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       duration: ['', [Validators.required, Validators.minLength(1)]],
-      code:['']
+      code: ['']
     });
   }
 
-generateCode(){
-  const course = this.courseForm.get('name')?.value;
+  generateCode() {
+    const course = this.courseForm.get('name')?.value;
 
-  if(course){
-    const words = course.split(' ');
-    const code = words.map((word:string) => word.charAt(0).toUpperCase()).join('');
-    this.courseForm.get('code')?.setValue(code); 
+    if (course) {
+      const words = course.split(' ');
+      const code = words.map((word: string) => word.charAt(0).toUpperCase()).join('');
+      this.courseForm.get('code')?.setValue(code);
+    }
   }
-}
 
-  save(){
+  save() {
     this.generateCode()
-    if(this.courseForm.valid){
+    if (this.courseForm.valid) {
       this.courseService.saveCourse(this.courseForm.value);
       this.router.navigate(['/dashboard/course/show-courses']);
-    }else{
+    } else {
       this.courseForm.markAllAsTouched();
     }
   }
