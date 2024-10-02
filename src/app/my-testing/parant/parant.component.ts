@@ -15,7 +15,8 @@ export class ParantComponent implements AfterViewInit, OnInit, OnDestroy {
 
   constructor(private data: DataService) { }
 
-  viewChildMessage!: string;
+
+  viewChildMessage: string = '';
 
   ngAfterViewInit(): void {
     this.viewChildMessage = this.child.message;

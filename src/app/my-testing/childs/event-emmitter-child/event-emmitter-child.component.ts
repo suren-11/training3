@@ -15,4 +15,4 @@ export class EventEmmitterChildComponent {
   sendMessage(){
     this.messageEvent.emit(this.message);
   }
-}
+} 

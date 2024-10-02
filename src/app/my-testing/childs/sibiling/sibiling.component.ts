@@ -10,6 +10,7 @@ import { DataService } from '../data.service';
 export class SibilingComponent implements OnInit, OnDestroy{
 
   message!: string;
+  nextMessage: string = '';
   subscription!: Subscription;
 
   constructor(private data: DataService) {
@@ -25,7 +26,7 @@ export class SibilingComponent implements OnInit, OnDestroy{
   }
 
   newMessage(){
-    this.data.changeMessage('Hello This is different message from sibiling')
+    this.data.changeMessage(this.nextMessage);
   }
 
 }
