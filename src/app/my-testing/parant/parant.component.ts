@@ -12,11 +12,11 @@ export class ParantComponent implements AfterViewInit, OnInit, OnDestroy {
   parentMessage = 'This is from Parent component'
 
   @ViewChild(ViewChildComponent) child: any;
-
+  
   constructor(private data: DataService) { }
 
 
-  viewChildMessage: string = '';
+  viewChildMessage!: string;
 
   ngAfterViewInit(): void {
     this.viewChildMessage = this.child.message;
@@ -38,4 +38,11 @@ export class ParantComponent implements AfterViewInit, OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
+
+
+  // 
+
+  
+
+
 }

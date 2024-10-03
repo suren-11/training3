@@ -7,12 +7,14 @@ import { ParantComponent } from './parant/parant.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EventEmmitterChildComponent } from './childs/event-emmitter-child/event-emmitter-child.component';
 import { SibilingComponent } from './childs/sibiling/sibiling.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DatePickerComponent } from './reusable/date-picker/date-picker.component';
+import { ReusableParentComponent } from './reusable/reusable-parent/reusable-parent.component';
 
 
 const routes: Routes = [
   {path:'', component:MyTestingComponent},
-  { path: 'view-child', component: ViewChildComponent },
+  { path: 'testing2', component: ReusableParentComponent},
 ];
 
 @NgModule({
@@ -22,11 +24,14 @@ const routes: Routes = [
     ViewChildComponent,
     ParantComponent,
     EventEmmitterChildComponent,
-    SibilingComponent
+    SibilingComponent,
+    DatePickerComponent,
+    ReusableParentComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
   

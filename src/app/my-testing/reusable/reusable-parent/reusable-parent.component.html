@@ -1,0 +1,6 @@
+<div>
+    <h2 class="text-center">This is From Parent Component</h2>
+    <p>Selected Date: {{ selectedDate }}</p>
+    <app-date-picker (dateChange)="onDateChange($event)"></app-date-picker>
+    <span *ngIf="!isValidDate" class="text-danger">Invalid date. Please enter a valid date (dd-mm-yyyy).</span>
+</div>

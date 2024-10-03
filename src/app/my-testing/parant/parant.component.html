@@ -5,15 +5,11 @@
         <div class="col my-4 border border-dark border-5 ">
             <app-input-decorator-child [childMessage]="parentMessage"></app-input-decorator-child>
         </div>
-        
-        
-        
+
         <div class="col my-4 text-light">
             <app-view-child></app-view-child>
             Message : {{viewChildMessage}}
         </div>
-
-
 
         <div class="col my-4 text-light border border-5 border-dark-subtle">
             <h3>This is from Event Emitter Componenet</h3>
@@ -21,13 +17,12 @@
             <app-event-emmitter-child (messageEvent)="receiveMessage($event)"></app-event-emmitter-child>
         </div>
 
-
         <div class="col my-4 text-light border border-5 border-danger-subtle">
             <h3>This is from sibiling component</h3>
             {{sibilingMessage}}
             <app-sibiling></app-sibiling>
         </div>
-        
+
     </div>
 </div>
 <router-outlet></router-outlet>
