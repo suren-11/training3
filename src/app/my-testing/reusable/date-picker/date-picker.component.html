@@ -2,9 +2,12 @@
     <h4 class="h4 text-center">This is from Resuable Date Picker Component </h4>
     <form [formGroup]="dateForm" (input)="onDateChange()"
         class="form-control d-flex align-items-center justify-content-center">
-        <label class="form-label col-3">Select the date</label>
+        <label class="form-label col-3">Enter the date</label>
         <input type="tel" formControlName="day" placeholder="DD" class="form-control">
         <input type="tel" formControlName="month" placeholder="MM" class="form-control">
         <input type="tel" formControlName="year" placeholder="YYYY" class="form-control">
     </form>
+    <span *ngIf="errorMessage" class="text-danger">
+        Invalid date. Please enter a valid date (dd-mm-yyyy).
+    </span>
 </div>
