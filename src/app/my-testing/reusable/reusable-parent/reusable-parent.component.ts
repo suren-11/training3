@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './reusable-parent.component.scss'
 })
 export class ReusableParentComponent {
-  selectedDate!: string;
-
-  onDateChange(date: string): void {
-    this.selectedDate = date;
-  }
-
+  selectedDate: string = '';
 }

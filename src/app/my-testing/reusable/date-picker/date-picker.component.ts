@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,13 +6,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './date-picker.component.html',
   styleUrl: './date-picker.component.scss'
 })
-export class DatePickerComponent {
+export class DatePickerComponent implements OnInit {
 
   dateForm: FormGroup;
 
-  @Output() dateChange = new EventEmitter<string>();
-  errorMessage: boolean  = false;
+  @Input() selectedDate! :string;
 
+  @Output() selectedDateChange = new EventEmitter<string>();
+  errorMessage: boolean  = false;
+  
+  ngOnInit(): void {}
+  
   constructor(private fb: FormBuilder) {
     this.dateForm = this.fb.group({
       day: ['', [Validators.required, Validators.maxLength(2), Validators.min(1), Validators.max(31)]],
@@ -21,14 +25,17 @@ export class DatePickerComponent {
     });
   }
 
+
+
   onDateChange(): void {
     if (this.dateForm.valid) {
-      const formattedDate = `${this.dateForm.get('day')?.value}-${this.dateForm.get('month')?.value}-${this.dateForm.get('year')?.value}`;
-      const parsedDate = this.formatDate(formattedDate);
+      this.selectedDate = `${this.dateForm.get('day')?.value}-${this.dateForm.get('month')?.value}-${this.dateForm.get('year')?.value}`;
+      const parsedDate = this.formatDate(this.selectedDate);
+      
       
       if (parsedDate) {
         this.errorMessage = false;
-        this.dateChange.emit(formattedDate);
+        this.selectedDateChange.emit(this.selectedDate);
       } else {
         this.errorMessage = true;
       }
