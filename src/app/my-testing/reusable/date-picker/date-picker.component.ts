@@ -6,16 +6,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './date-picker.component.html',
   styleUrl: './date-picker.component.scss'
 })
-export class DatePickerComponent implements OnInit {
+export class DatePickerComponent {
 
   dateForm: FormGroup;
 
   @Input() selectedDate! :string;
 
   @Output() selectedDateChange = new EventEmitter<string>();
+
   errorMessage: boolean  = false;
   
-  ngOnInit(): void {}
+  // ngOnInit(): void {}
   
   constructor(private fb: FormBuilder) {
     this.dateForm = this.fb.group({
@@ -25,14 +26,12 @@ export class DatePickerComponent implements OnInit {
     });
   }
 
-
-
   onDateChange(): void {
     if (this.dateForm.valid) {
       this.selectedDate = `${this.dateForm.get('day')?.value}-${this.dateForm.get('month')?.value}-${this.dateForm.get('year')?.value}`;
       const parsedDate = this.formatDate(this.selectedDate);
       
-      
+
       if (parsedDate) {
         this.errorMessage = false;
         this.selectedDateChange.emit(this.selectedDate);
