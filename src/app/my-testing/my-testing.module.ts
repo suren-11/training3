@@ -10,11 +10,15 @@ import { SibilingComponent } from './childs/sibiling/sibiling.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePickerComponent } from './reusable/date-picker/date-picker.component';
 import { ReusableParentComponent } from './reusable/reusable-parent/reusable-parent.component';
+import { SubjectListComponent } from './subject-list/subject-list.component';
+import { SubjectStreamService } from '../subject-stream.service';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 
 const routes: Routes = [
   {path:'', component:MyTestingComponent},
   { path: 'testing2', component: ReusableParentComponent},
+  { path: 'subject-list', component: SubjectListComponent},
 ];
 
 @NgModule({
@@ -26,15 +30,16 @@ const routes: Routes = [
     EventEmmitterChildComponent,
     SibilingComponent,
     DatePickerComponent,
-    ReusableParentComponent
+    ReusableParentComponent,
+    SubjectListComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-  ],
-  
-  exports:[RouterModule]
+  ],  
+  exports:[RouterModule],
+  providers: [SubjectStreamService, provideHttpClient(withFetch())],
 })
 export class MyTestingModule { }
