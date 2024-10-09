@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SubjectStream } from '../../entities/subjects';
-import { SubjectStreamService } from '../../subject-stream.service';
+import { SubjectStreamService } from '../../services/subject-stream.service';
 
 @Component({
   selector: 'app-subject-list',
@@ -11,18 +11,16 @@ export class SubjectListComponent implements OnInit {
 
   subjects: SubjectStream[] = [];
 
-  constructor(private ss: SubjectStreamService) { }
+  constructor(private subjectService: SubjectStreamService) { }
 
   ngOnInit(): void {
-    this.ss.getStrems().subscribe(
-      (data)=>{
+    this.subjectService.getStrems().subscribe({
+      next: (data) => {
         this.subjects = data
       },
-      (error)=>{
-        console.error("Error fetching ",error);
-        
+      error: (error) => {
+        console.error("Error fetching ", error);
       }
-    );
+    });
   }
-
 }

@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Student } from '../entities/student';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +42,7 @@ export class StudentServiceService {
     pk: '202400003'
   };
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.students.push(this.students1)
     this.students.push(this.student2)
     this.students.push(this.student3)
@@ -66,5 +69,13 @@ export class StudentServiceService {
     if (index !== -1) {
       this.students[index] = updatedStudent;
     }
+  }
+
+  private apiUrl = '/api/Student'
+  
+  getAllStudents(): Observable<Student[]> {
+    console.log(this.http.get<Student[]>(this.apiUrl));
+    
+    return this.http.get<Student[]>(this.apiUrl);
   }
 }

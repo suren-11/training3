@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { StudentServiceService } from '../../student-service.service';
+import { StudentServiceService } from '../../services/student-service.service';
 import { Router } from '@angular/router';
+import { Student } from '../../entities/student';
 
 @Component({
   selector: 'app-show-students',
@@ -10,11 +11,14 @@ import { Router } from '@angular/router';
 export class ShowStudentsComponent implements OnInit {
 
   students: any[] = [];
+  students2: Student[] = [];
+  students3: any[] = [];
 
   constructor(private router: Router, private studentService: StudentServiceService) { }
 
   ngOnInit(): void {
     this.loadStudents();
+    this.loadAllStudents();
   }
 
   loadStudents() {
@@ -26,4 +30,18 @@ export class ShowStudentsComponent implements OnInit {
     this.router.navigate(['/dashboard/student/edit-student']);
   }
 
+  loadAllStudents(){
+    this.studentService.getAllStudents().subscribe({
+      next:(data)=>{
+        console.log(data);
+        
+        this.students2 = data
+        this.students3 = data
+      },
+      error:(error)=>{
+        console.error("Fetching Error ", error);
+        
+      }
+    });
+  }
 }

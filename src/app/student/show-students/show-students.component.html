@@ -29,5 +29,38 @@
                 </tbody>
               </table>
         </div>
+        <h3>Students2 List</h3>
+        <div class="w-100">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Primary Key</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Second Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">DOB</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">StreamId</th>
+                    <th>Registerd Number</th>
+                    <th scope="col">RegisterDate</th> 
+                    <th scope="col">Option</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let student of students2">
+                    <td>{{student.id}}</td>
+                    <td>{{student.firstName}}</td>
+                    <td>{{student.secondName}}</td>
+                    <td>{{student.lastName}}</td>
+                    <td>{{student.dateOfBirth| date: 'dd/MM/yyyy'}}</td>
+                    <td>{{student.gender}}</td>
+                    <td>{{student.streamId}}</td>
+                    <td>{{student.registrationNumber}}</td>
+                    <td>{{student.registrationDate}}</td>
+                    <td><button class="btn btn-success px-5" (click)="editStudent(student)">Edit</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
     </div>
 </div>

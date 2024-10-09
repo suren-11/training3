@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePickerComponent } from './reusable/date-picker/date-picker.component';
 import { ReusableParentComponent } from './reusable/reusable-parent/reusable-parent.component';
 import { SubjectListComponent } from './subject-list/subject-list.component';
-import { SubjectStreamService } from '../subject-stream.service';
+import { SubjectStreamService } from '../services/subject-stream.service';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 
