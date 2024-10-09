@@ -29,9 +29,9 @@
                 </tbody>
               </table>
         </div>
-        <h3>Students2 List</h3>
         <div class="w-100">
-            <table class="table table-striped">
+          <h3 class="text-success text-center">Students List From Backend</h3>
+            <table class="table table-bordered border-black text-center">
                 <thead>
                   <tr>
                     <th>Primary Key</th>
@@ -56,7 +56,7 @@
                     <td>{{student.gender}}</td>
                     <td>{{student.streamId}}</td>
                     <td>{{student.registrationNumber}}</td>
-                    <td>{{student.registrationDate}}</td>
+                    <td>{{student.registrationDate | date:'yyyy'}}</td>
                     <td><button class="btn btn-success px-5" (click)="editStudent(student)">Edit</button></td>
                   </tr>
                 </tbody>

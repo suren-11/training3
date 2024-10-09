@@ -13,12 +13,14 @@ import { ReusableParentComponent } from './reusable/reusable-parent/reusable-par
 import { SubjectListComponent } from './subject-list/subject-list.component';
 import { SubjectStreamService } from '../services/subject-stream.service';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { AddStudentBackendComponent } from './add-student-backend/add-student-backend.component';
 
 
 const routes: Routes = [
-  {path:'', component:MyTestingComponent},
-  { path: 'testing2', component: ReusableParentComponent},
-  { path: 'subject-list', component: SubjectListComponent},
+  { path: '', component: MyTestingComponent },
+  { path: 'testing2', component: ReusableParentComponent },
+  { path: 'subject-list', component: SubjectListComponent },
+  { path: 'add-student', component: AddStudentBackendComponent }
 ];
 
 @NgModule({
@@ -31,15 +33,16 @@ const routes: Routes = [
     SibilingComponent,
     DatePickerComponent,
     ReusableParentComponent,
-    SubjectListComponent
+    SubjectListComponent,
+    AddStudentBackendComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-  ],  
-  exports:[RouterModule],
+  ],
+  exports: [RouterModule],
   providers: [SubjectStreamService, provideHttpClient(withFetch())],
 })
 export class MyTestingModule { }

@@ -74,8 +74,10 @@ export class StudentServiceService {
   private apiUrl = '/api/Student'
   
   getAllStudents(): Observable<Student[]> {
-    console.log(this.http.get<Student[]>(this.apiUrl));
-    
     return this.http.get<Student[]>(this.apiUrl);
+  }
+
+  saveStudentBackend(student:Student){
+    return this.http.post(this.apiUrl,student);
   }
 }

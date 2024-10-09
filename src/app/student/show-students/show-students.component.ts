@@ -12,7 +12,6 @@ export class ShowStudentsComponent implements OnInit {
 
   students: any[] = [];
   students2: Student[] = [];
-  students3: any[] = [];
 
   constructor(private router: Router, private studentService: StudentServiceService) { }
 
@@ -33,10 +32,7 @@ export class ShowStudentsComponent implements OnInit {
   loadAllStudents(){
     this.studentService.getAllStudents().subscribe({
       next:(data)=>{
-        console.log(data);
-        
         this.students2 = data
-        this.students3 = data
       },
       error:(error)=>{
         console.error("Fetching Error ", error);

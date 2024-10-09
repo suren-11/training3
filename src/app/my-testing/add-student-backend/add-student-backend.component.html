@@ -1,0 +1,67 @@
+<div class="d-flex">
+
+    <div class="container d-flex justify-content-center align-items-center flex-column">
+
+        <h3>Add Student</h3>
+
+        <form class="row d-flex justify-content-center my-3" [formGroup]="studentForm" (submit)="save()">
+
+            <div class="col-md-8">
+
+                <label for="firstName" class="form-label">First Name</label>
+
+                <input type="text" class="form-control" id="firstName" placeholder="Ex: Suren" name="firstName"
+                    formControlName="firstName">
+            </div>
+            <div class="col-md-8">
+
+                <label for="secondName" class="form-label">Second Name</label>
+
+                <input type="text" class="form-control" id="secondName" placeholder="Ex: Prasanth" name="secondName"
+                    formControlName="secondName">
+            </div>
+            <div class="col-md-8">
+
+                <label for="lastName" class="form-label">Last Name</label>
+
+                <input type="text" class="form-control" id="lastName" placeholder="Ex: Suren" name="lastName"
+                    formControlName="lastName">
+            </div>
+
+            <div class="col-md-8">
+                <label for="dateOfBirth" class="form-label">Date of Birth</label>
+
+                <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" formControlName="dateOfBirth">
+            </div>
+
+            <div class="col-md-8">
+
+                <label for="gender">Gender</label>
+
+                <select class="form-control" name="gender" id="gender" formControlName="gender">
+
+                    <option value="" disabled>Select the Gender here</option>
+                    <option value="Male">Male</option>
+                    <option value="FeMale">FeMale</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-md-8">
+
+                <label for="streamId">Course</label>
+
+                <select class="form-control" name="streamId" id="streamId" formControlName="streamId">
+
+                    <option value="" disabled>Select the Course here</option>
+                    <option *ngFor="let course of courses" [value]="course.id">{{ course.name }}</option>
+                </select>
+            </div>
+
+            <div class="col-8 d-flex align-items-center justify-content-center mt-3">
+                <button class="btn btn-primary w-100" type="submit">Save</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
